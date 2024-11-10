@@ -4,20 +4,23 @@ import 'package:path/path.dart' as path;
 import 'package:archive/archive.dart';
 
 void main(List<String> arguments) {
+  //print('arguments: $arguments');
   final parser = ArgParser()
-    ..addCommand('create')
-    ..addFlag('flutter',
-        abbr: 'f', negatable: false, help: 'Create a Flutter project');
+    ..addCommand(
+        'create',
+        ArgParser()
+          ..addFlag('flutter',
+              abbr: 'f', negatable: false, help: 'Create a Flutter project'));
 
   ArgResults argResults = parser.parse(arguments);
-
   if (argResults.command?.name == 'create') {
-    if (argResults['flutter']) {
-      if (argResults.rest.isEmpty) {
+    if (argResults.command!['flutter']) {
+      if (argResults.command!.rest.isEmpty) {
         print('Please provide a project name: pp create -f <project_name>');
         exit(1);
       }
-      String projectName = argResults.rest[0];
+      String projectName = argResults.command!.rest[0]; // 修改这里
+      print('$projectName flutter project generating...');
       createFlutterProjectFromZip(projectName);
     } else {
       print('Invalid command or option.');
@@ -35,7 +38,7 @@ void createFlutterProjectFromZip(String projectName) {
     print('Error: FLUTTER_TEMPLATE_PATH environment variable is not set.');
     exit(1);
   }
-
+  print('templateZipPath $templateZipPath');
   String destinationPath = path.join(Directory.current.path, projectName);
 
   // 检查项目是否已存在
