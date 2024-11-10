@@ -22,9 +22,12 @@ pp create -f my_app -o ppsw
 xiaopin@PPM2-MacBook-Air Samples % pp help
 arguments: [help]
 pp_tool help:
-  Usage: pp create -f <project_name> [-o <organization_name>]
+  Usage:
+  pp create -f <project_name> [-o <organization_name>]
   -f <project_name>: The name of the Flutter project to create.
   -o <organization_name>: The organization name for the project. Defaults to 'example'.
+
+  pp -v : Show the version of the tool
 ```
 
 # 使用说明
