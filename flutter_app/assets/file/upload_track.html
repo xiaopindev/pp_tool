@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>HT Offline Music</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #B3A1FF; /* 背景色 */
+        color: #fff; /* 字体色 */
+        height: 100vh; /* 全屏铺满 */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .page_title {
+        text-align: center;
+        font-size: 28px;
+        font-weight: bold;
+        margin-top: 20px;
+    }
+    .upload_desc {
+        text-align: center;
+        margin: 20px 0;
+    }
+    .upload-section {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .file-count {
+        text-align: left;
+        margin: 0 50px;
+        width: 90%;
+    }
+    .file-list-container {
+        margin: 10px 50px 50px 50px; /* 左右和底部边距 */
+        width: 90%;
+        overflow-y: auto;
+        background-color: #292633;
+        padding: 20px;
+        border-radius: 15px;
+    }
+    .file-list {
+        list-style: none;
+        padding: 0;
+    }
+    .file-list li {
+        display: flex;
+        align-items: center;
+        margin: 10px;
+        padding: 15px;
+        background-color: #3a3a3a;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .file-list img {
+        margin-right: 10px;
+    }
+    .file-list span {
+        margin-right: 10px;
+    }
+    .file-list a {
+        margin-left: auto;
+        text-decoration: none;
+        color: #007bff;
+    }
+    .file-list a:hover {
+        text-decoration: underline;
+    }
+    input[type="file"] {
+        display: none;
+    }
+    label[for="fileInput"] {
+        background-color: #6741FF;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 40px;
+        cursor: pointer;
+        font-size: 25px;
+        font-weight: 600;
+        transition: background-color 0.3s;
+        width: 200px; 
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    label[for="fileInput"]:hover {
+        background-color: #5631cc;
+    }
+    
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+<div class="page_title">HT Offline Music</div>
+<div class="upload_desc">
+    <p>Use the "Upload" button to upload new track. Don't close browser or lock your device while importing tracks.</p>
+</div>
+<div class="upload-section">
+    <form id="uploadForm" enctype="multipart/form-data">
+        <input type="file" id="fileInput" name="file">
+        <label for="fileInput">Upload</label>
+    </form>
+</div>
+<div class="file-count" id="fileCount">Total files: 0</div>
+<div class="file-list-container">
+    <ul id="fileList" class="file-list">
+        <li>
+            <img src="https://via.placeholder.com/100" alt="Music Icon">
+            <span>Example1.mp3</span>
+            <span>3.10 MB</span>
+            <a href="http://192.168.1.163:6688/download/奢香夫人.m4a">Download</a>
+        </li>
+    </ul>
+</div>
+<script>
+    $(document).ready(function() {
+        $('#fileInput').on('change', function() {
+            $('#uploadForm').submit(); // 触发表单提交
+        });
+        $('#uploadForm').on('submit', function(event) {
+            event.preventDefault();
+            const fileInput = $('#fileInput')[0];
+            const formData = new FormData();
+            formData.append('file', fileInput.files[0]);
+            $.ajax({
+                url: 'http://192.168.1.163:6688/upload',
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                    //alert('File uploaded successfully');
+                    loadFiles();
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    alert('File upload failed: ' + textStatus);
+                }
+            });
+        });
+
+        function loadFiles() {
+            $.ajax({
+                url: 'http://192.168.1.163:6688/files',
+                type: 'GET',
+                dataType:'json',
+                success: function(files) {
+                    const fileList = $('#fileList');
+                    const fileCount = $('#fileCount');
+                    fileList.empty();
+                    fileCount.text('Total files: ' + files.length);
+                    files.forEach(file => {
+                        const li = $('<li></li>');
+                        const spanName = $('<span></span>').text(file);
+                        const a = $('<a></a>').attr('href', 'http://192.168.1.163:6688/download/' + file).text('Download');
+                        li.append(spanName).append(a);
+                        fileList.append(li);
+                    });
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    alert('Failed to load files: ' + textStatus);
+                }
+            });
+        }
+
+        loadFiles();
+    });
+</script>
+</body>
+</html>
