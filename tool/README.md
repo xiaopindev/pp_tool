@@ -97,9 +97,8 @@ Available subcommands:
 
 ``` bash
 mymac@192 ~ % dart pub global list
-flutter_distributor 0.4.5
 intl_utils 2.8.7
-pp_tool 1.0.2
+pp_tool 1.0.3
 ```
 
 保存地址：

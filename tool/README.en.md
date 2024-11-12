@@ -97,7 +97,7 @@ Available subcommands:
 ```bash
 mymac@192 ~ % dart pub global list
 intl_utils 2.8.7
-pp_tool 1.0.2
+pp_tool 1.0.3
 ```
 
 Save location:
