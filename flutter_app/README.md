@@ -39,7 +39,7 @@ pod clean
 pod install
 ```
 
-## JSON生成命令
+## JSON对象生成命令
 
 ``` bash
 dart run build_runner build --delete-conflicting-outputs
