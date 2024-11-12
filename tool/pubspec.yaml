@@ -1,6 +1,6 @@
 name: pp_tool
-description: Automatically and quickly generate custom Flutter template project.
-version: 1.0.0
+description: Automatically and quickly generate custom templates for Flutter projects.
+version: 1.0.1
 repository: https://github.com/xiaopindev/pp_tool
 
 environment:

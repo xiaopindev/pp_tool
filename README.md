@@ -1,3 +1,5 @@
+Docs: [English](README.en.md)
+
 # pp_tool介绍
 
 每个人都会有自己的一套技术体系和工程模版，在开发下一个项目的时候希望能够快速的生成和配置好基础的项目工程。就类似于新建一个项目工程，可以选择空项目工程，也可以选择模版工程。
@@ -8,18 +10,29 @@
 
 ``` bash
 pp create -f my_flutter_project
+pp create -f my_app -o ppsw
+```
+
+**未来考虑扩展**
+
+``` bash
 pp create -i my_ios_project
 pp create -h my_harmoney_project
 pp create -a my_android_project
 pp create -w my_web_project
-
-pp create -f my_app -o ppsw
 ```
+
+# 构建自定义模版说明
+
+1. 使用VSCode, 终端命令等其他工具，创建一个空的项目，名称必须叫：flutter_app,  包名必须是com.example.flutter_app
+2. 在flutter_app项目中加入你的代码
+3. 压缩项目工程为：flutter_app.zip
+4. 配置到环境变量中
 
 # 命令说明
 
 ``` bash
-xiaopin@PPM2-MacBook-Air Samples % pp help
+mymac@PPM2-MacBook-Air Samples % pp help
 arguments: [help]
 pp_tool help:
   Usage:
@@ -28,6 +41,18 @@ pp_tool help:
   -o <organization_name>: The organization name for the project. Defaults to 'example'.
 
   pp -v : Show the version of the tool
+```
+
+- 快速使用你自定义的项目工程模版，自动创建你的Flutter项目工程
+
+``` bash
+pp create -f my_flutter_project
+```
+
+- 也指定你的组织机构
+
+``` bash
+pp create -f my_flutter_project -o ppsw
 ```
 
 # 使用说明
@@ -53,17 +78,17 @@ dart pub global activate pp_tool
 **macOS/Linux**：在 ~/.bashrc 或 ~/.zshrc 中添加以下行：
 
 ``` bash
-export FLUTTER_TEMPLATE_PATH="/Users/xiaopin/dev/templates/flutter_app.zip"
+export FLUTTER_TEMPLATE_PATH="/Users/mymac/dev/templates/flutter_app.zip"
 ```
 
 我添加的环境变量是：
 
 ``` bash
-export PATH=/Users/xiaopin/dev/flutter/bin:$PATH
+export PATH=/Users/mymac/dev/flutter/bin:$PATH
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 export PUB_HOSTED_URL=https://pub.flutter-io.cn
 export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
-export FLUTTER_TEMPLATE_PATH="/Users/xiaopin/dev/templates/flutter_app.zip"
+export FLUTTER_TEMPLATE_PATH="/Users/mymac/dev/templates/flutter_app.zip"
 ```
 
 如果你不在中国，可以去掉：
@@ -88,13 +113,13 @@ pp create -f hello_app -o ppsw
 - 查看结果
 
 ```
-xiaopin@PPM2-MacBook-Air Samples % pp create -f hello_app -o ppsw
+mymac@PPM2-MacBook-Air Samples % pp create -f hello_app -o ppsw
 arguments: [create, -f, hello_app, -o, ppsw]
 Organization: ppsw
 Project: hello_app
 hello_app flutter project generating...
-Template source file: /Users/xiaopin/dev/templates/flutter_app.zip
-Target directory path: /Users/xiaopin/Desktop/AppDev/Flutter/Samples
-Flutter project "hello_app" created successfully at /Users/xiaopin/Desktop/AppDev/Flutter/Samples/hello_app
+Template source file: /Users/mymac/dev/templates/flutter_app.zip
+Target directory path: /Users/mymac/Desktop/AppDev/Flutter/Samples
+Flutter project "hello_app" created successfully at /Users/mymac/Desktop/AppDev/Flutter/Samples/hello_app
 Done!
 ```

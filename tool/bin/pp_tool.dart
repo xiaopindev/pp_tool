@@ -32,7 +32,7 @@ void main(List<String> arguments) {
   try {
     ArgResults argResults = parser.parse(arguments);
     if (argResults['version'] as bool) {
-      print('pp_tool v1.0.0 created on 2024-11-10 by xiaopindev.');
+      print('pp_tool v1.0.1 created on 2024-11-12 by xiaopindev.');
       return;
     }
     if (argResults.command?.name == 'create') {
