@@ -1,4 +1,8 @@
 
+## 1.0.3
+
+- Conflict resolution with system commands.
+
 ## 1.0.2
 
 - Fix bugs.

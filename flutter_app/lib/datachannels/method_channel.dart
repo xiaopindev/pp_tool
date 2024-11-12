@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/services.dart';
-import 'package:flutter_app/pp_kits/logger.dart';
+import 'package:flutter_app/pp_kits/common/logger.dart';
 
 class MethodChannelHandler {
   //单例写法

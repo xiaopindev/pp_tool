@@ -16,7 +16,7 @@ import 'generated/l10n.dart';
 import 'globals/app_global.dart';
 import 'modules/common/unknown_page.dart';
 import 'modules/launch_load/launch_page.dart';
-import 'pp_kits/logger.dart';
+import 'pp_kits/common/logger.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

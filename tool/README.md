@@ -9,17 +9,17 @@ Docs: [English](README.en.md)
 比如命令终端中输入：
 
 ``` bash
-pp create -f my_flutter_project
-pp create -f my_app -o ppsw
+ptool create -f my_flutter_project
+ptool create -f my_app -o ppsw
 ```
 
 **未来考虑扩展**
 
 ``` bash
-pp create -i my_ios_project
-pp create -h my_harmoney_project
-pp create -a my_android_project
-pp create -w my_web_project
+ptool create -i my_ios_project
+ptool create -h my_harmoney_project
+ptool create -a my_android_project
+ptool create -w my_web_project
 ```
 
 # 构建自定义模版说明
@@ -36,7 +36,7 @@ mymac@PPM2-MacBook-Air Samples % pp help
 arguments: [help]
 pp_tool help:
   Usage:
-  pp create -f <project_name> [-o <organization_name>]
+  ptool create -f <project_name> [-o <organization_name>]
   -f <project_name>: The name of the Flutter project to create.
   -o <organization_name>: The organization name for the project. Defaults to 'example'.
 
@@ -46,13 +46,13 @@ pp_tool help:
 - 快速使用你自定义的项目工程模版，自动创建你的Flutter项目工程
 
 ``` bash
-pp create -f my_flutter_project
+ptool create -f my_flutter_project
 ```
 
 - 也可以指定你的组织机构
 
 ``` bash
-pp create -f my_flutter_project -o ppsw
+ptool create -f my_flutter_project -o ppsw
 ```
 
 # 使用说明
@@ -107,13 +107,13 @@ source ~/.zshrc
 - 运行命令
 
 ```bash
-pp create -f hello_app -o ppsw
+ptool create -f hello_app -o ppsw
 ```
 
 - 查看结果
 
 ```
-mymac@PPM2-MacBook-Air Samples % pp create -f hello_app -o ppsw
+mymac@PPM2-MacBook-Air Samples % ptool create -f hello_app -o ppsw
 arguments: [create, -f, hello_app, -o, ppsw]
 Organization: ppsw
 Project: hello_app

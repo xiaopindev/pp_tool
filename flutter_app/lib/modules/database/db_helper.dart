@@ -1,4 +1,4 @@
-import 'package:flutter_app/pp_kits/logger.dart';
+import 'package:flutter_app/pp_kits/common/logger.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 

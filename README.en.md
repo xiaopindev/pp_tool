@@ -9,17 +9,17 @@ Can we also automatically generate our own project template with a single comman
 For example, by entering the following in the terminal:
 
 ```bash
-pp create -f my_flutter_project
-pp create -f my_app -o ppsw
+ptool create -f my_flutter_project
+ptool create -f my_app -o ppsw
 ```
 
 **Future Expansion Considerations**
 
 ```bash
-pp create -i my_ios_project
-pp create -h my_harmony_project
-pp create -a my_android_project
-pp create -w my_web_project
+ptool create -i my_ios_project
+ptool create -h my_harmony_project
+ptool create -a my_android_project
+ptool create -w my_web_project
 ```
 
 # Instructions for Building Custom Templates
@@ -36,7 +36,7 @@ mymac@PPM2-MacBook-Air Samples % pp help
 arguments: [help]
 pp_tool help:
   Usage:
-  pp create -f <project_name> [-o <organization_name>]
+  ptool create -f <project_name> [-o <organization_name>]
   -f <project_name>: The name of the Flutter project to create.
   -o <organization_name>: The organization name for the project. Defaults to 'example'.
 
@@ -46,13 +46,13 @@ pp_tool help:
 - Quickly use your custom project template to automatically create your Flutter project.
 
 ```bash
-pp create -f my_flutter_project
+ptool create -f my_flutter_project
 ```
 
 - You can also specify your organization.
 
 ```bash
-pp create -f my_flutter_project -o ppsw
+ptool create -f my_flutter_project -o ppsw
 ```
 
 # Usage Instructions
@@ -107,13 +107,13 @@ source ~/.zshrc
 - Run the command
 
 ```bash
-pp create -f hello_app -o ppsw
+ptool create -f hello_app -o ppsw
 ```
 
 - View the results
 
 ```
-mymac@PPM2-MacBook-Air Samples % pp create -f hello_app -o ppsw
+mymac@PPM2-MacBook-Air Samples % ptool create -f hello_app -o ppsw
 arguments: [create, -f, hello_app, -o, ppsw]
 Organization: ppsw
 Project: hello_app

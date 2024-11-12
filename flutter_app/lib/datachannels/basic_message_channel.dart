@@ -1,5 +1,5 @@
 import 'package:flutter/services.dart';
-import 'package:flutter_app/pp_kits/logger.dart';
+import 'package:flutter_app/pp_kits/common/logger.dart';
 
 class BasicMessageChannelHandler {
   // 单例模式实现
