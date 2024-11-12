@@ -32,7 +32,7 @@ void main(List<String> arguments) {
   try {
     ArgResults argResults = parser.parse(arguments);
     if (argResults['version'] as bool) {
-      print('pp_tool v1.0.3 created on 2024-11-12 by xiaopindev.');
+      print('pp_tool v1.0.4 created on 2024-11-13 by xiaopindev.');
       return;
     }
     if (argResults.command?.name == 'create') {
@@ -64,7 +64,7 @@ void printUsage() {
   -f <project_name>: The name of the Flutter project to create.
   -o <organization_name>: The organization name for the project. Defaults to 'example'.
   
-  pp -v : Show the version of the tool
+  ptool -v : Show the version of the tool
   ''');
 }
 

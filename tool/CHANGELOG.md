@@ -1,3 +1,6 @@
+## 1.0.4
+
+- Update document.
 
 ## 1.0.3
 

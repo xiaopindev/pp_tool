@@ -1,6 +1,6 @@
 Docs: [中文](README.md)
 
-# Introduction
+# Introduction to pp_tool
 
 Everyone has their own set of technical systems and engineering templates. When developing the next project, you might want to quickly generate and configure the basic project structure. Similar to creating a new project, you can choose an empty project or a template project.
 
@@ -40,7 +40,7 @@ pp_tool help:
   -f <project_name>: The name of the Flutter project to create.
   -o <organization_name>: The organization name for the project. Defaults to 'example'.
 
-  pp -v : Show the version of the tool
+  ptool -v : Show the version of the tool
 ```
 
 - Quickly use your custom project template to automatically create your Flutter project.
@@ -57,7 +57,7 @@ ptool create -f my_flutter_project -o ppsw
 
 # Usage Instructions
 
-- Download, activate, and use
+- Download and activate
 
 Open the terminal (macOS/Linux) or command prompt (Windows), and run the following command to globally install `pp_tool`:
 
@@ -65,7 +65,47 @@ Open the terminal (macOS/Linux) or command prompt (Windows), and run the followi
 dart pub global activate pp_tool
 ```
 
-This will download and install `pp_tool` from pub.dev and add it to your Dart global tools.
+This will download and install `pp_tool` from pub.dev and add it to your Dart global tools. The output will be:
+
+```bash
+mymac@192 ~ % dart pub global activate pp_tool
+Package pp_tool is currently active at version 1.0.2.
+Downloading packages... .
+> pp_tool 1.0.3 (was 1.0.2)
+Building package executables...
+Built pp_tool:pp_tool.
+Installed executable ptool.
+Activated pp_tool 1.0.3.
+```
+
+If the command does not work properly, you can verify with the following command:
+
+```bash
+mymac@192 ~ % dart pub global
+Missing subcommand for "dart pub global".
+
+Usage: dart pub global [arguments...]
+-h, --help    Print this usage information.
+
+Available subcommands:
+  activate     Make a package's executables globally available.
+  deactivate   Remove a previously activated package.
+  list         List globally activated packages.
+  run          Run an executable from a globally activated package.
+```
+
+```bash
+mymac@192 ~ % dart pub global list
+intl_utils 2.8.7
+pp_tool 1.0.2
+```
+
+Save location:
+
+```
+/Users/***/.pub-cache/bin/ptool
+/Users/***/.pub-cache/bin/global_packages/pp_tool
+```
 
 - Store the template path in an environment variable
 

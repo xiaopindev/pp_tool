@@ -40,7 +40,7 @@ pp_tool help:
   -f <project_name>: The name of the Flutter project to create.
   -o <organization_name>: The organization name for the project. Defaults to 'example'.
 
-  pp -v : Show the version of the tool
+  ptool -v : Show the version of the tool
 ```
 
 - 快速使用你自定义的项目工程模版，自动创建你的Flutter项目工程
@@ -63,9 +63,51 @@ ptool create -f my_flutter_project -o ppsw
 
 ``` bash
 dart pub global activate pp_tool
+
 ```
 
-这将从 pub.dev 下载并安装 pp_tool，并将其添加到你的 Dart 全局工具中。
+这将从 pub.dev 下载并安装 pp_tool，并将其添加到你的 Dart 全局工具中。返回结果：
+
+``` bash
+mymac@192 ~ % dart pub global activate pp_tool
+Package pp_tool is currently active at version 1.0.2.
+Downloading packages... .
+> pp_tool 1.0.3 (was 1.0.2)
+Building package executables...
+Built pp_tool:pp_tool.
+Installed executable ptool.
+Activated pp_tool 1.0.3.
+```
+
+如果命令无法正常使用。可以通过一下命令进行验证：
+
+``` bash
+mymac@192 ~ % dart pub global
+Missing subcommand for "dart pub global".
+
+Usage: dart pub global [arguments...]
+-h, --help    Print this usage information.
+
+Available subcommands:
+  activate     Make a package's executables globally available.
+  deactivate   Remove a previously activated package.
+  list         List globally activated packages.
+  run          Run an executable from a globally activated package.
+```
+
+``` bash
+mymac@192 ~ % dart pub global list
+flutter_distributor 0.4.5
+intl_utils 2.8.7
+pp_tool 1.0.2
+```
+
+保存地址：
+
+```
+/Users/***/.pub-cache/bin/ptool
+/Users/***/.pub-cache/bin/global_packages/pp_tool
+```
 
 - 将模板路径存放到环境变量
 
