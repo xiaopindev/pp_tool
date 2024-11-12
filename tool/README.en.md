@@ -49,7 +49,7 @@ pp_tool help:
 pp create -f my_flutter_project
 ```
 
-- Specify your organization as well.
+- You can also specify your organization.
 
 ```bash
 pp create -f my_flutter_project -o ppsw
